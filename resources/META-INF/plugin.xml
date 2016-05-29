@@ -1,0 +1,34 @@
+<idea-plugin version="2">
+    <id>com.github.bramblevine</id>
+    <name>Eclipse Inspired Java Intentions</name>
+    <version>0.1</version>
+    <vendor url="https://github.com/bramblevine/idea-plugin-java-intents">bramblevine on GitHub</vendor>
+
+    <description><![CDATA[
+Intention actions inspired by Eclipse. These intentions wrap the already existing actions from Idea.
+
+<ul>
+   <li>Convert local variable declaration to field declaration
+</ul>
+    ]]></description>
+
+    <change-notes><![CDATA[
+        <ul>
+            <li>0.1 Introduced convert local variable to field intention.</li>
+        </ul>
+        ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="145"/>
+
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <intentionAction>
+            <className>com.github.bramblevine.idea.intention.LocalVariableToFieldConverter</className>
+            <category>Java/Declaration</category>
+            <descriptionDirectoryName>LocalVariableToFieldConverter</descriptionDirectoryName>
+        </intentionAction>
+    </extensions>
+</idea-plugin>

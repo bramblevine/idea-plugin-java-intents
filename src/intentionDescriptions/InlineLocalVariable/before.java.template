@@ -1,0 +1,6 @@
+public class X {
+  void f() {
+    String <spot>foo</spot> = "value";
+    bar(<spot>foo</spot>);
+  }
+}

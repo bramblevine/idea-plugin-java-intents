@@ -9,11 +9,13 @@ Intention actions inspired by Eclipse. These intentions wrap the already existin
 
 <ul>
    <li>Convert local variable declaration to field declaration
+   <li>Inline local variable declaration
 </ul>
     ]]></description>
 
     <change-notes><![CDATA[
         <ul>
+            <li>0.2 Introduced inline local variable declaration
             <li>0.1 Introduced convert local variable to field intention.</li>
         </ul>
         ]]>
@@ -29,6 +31,11 @@ Intention actions inspired by Eclipse. These intentions wrap the already existin
             <className>com.github.bramblevine.idea.intention.LocalVariableToFieldConverter</className>
             <category>Java/Declaration</category>
             <descriptionDirectoryName>LocalVariableToFieldConverter</descriptionDirectoryName>
+        </intentionAction>
+        <intentionAction>
+            <className>com.github.bramblevine.idea.intention.InlineLocalVariable</className>
+            <category>Java/Declaration</category>
+            <descriptionDirectoryName>InlineLocalVariable</descriptionDirectoryName>
         </intentionAction>
     </extensions>
 </idea-plugin>

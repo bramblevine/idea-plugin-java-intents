@@ -5,21 +5,21 @@ import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
 @NonNls
-public class LocalVariableToFieldConverter extends LocalVariableDeclarationIntentionAction {
+public class InlineLocalVariable extends LocalVariableDeclarationIntentionAction {
 
-    public LocalVariableToFieldConverter() {
-        super("IntroduceField");
+    public InlineLocalVariable() {
+        super("Inline");
     }
 
     @Nls
     @NotNull
     public String getFamilyName() {
-        return "Convert local variable to field";
+        return "Inline local variable";
     }
 
     @NotNull
     @Override
     public String getText() {
-        return "Convert local variable to field";
+        return "Inline local variable";
     }
 }

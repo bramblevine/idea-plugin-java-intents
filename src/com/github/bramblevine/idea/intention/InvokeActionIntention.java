@@ -26,14 +26,11 @@ public abstract class InvokeActionIntention extends PsiElementBaseIntentionActio
 
     public void invoke(@NotNull Project project, Editor editor, @NotNull PsiElement element) throws IncorrectOperationException {
         final AnAction action = ActionManager.getInstance().getAction(actionId);
-        ApplicationManager.getApplication().invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                DataManager instance = DataManager.getInstance();
-                DataContext context = instance != null ? instance.getDataContext(editor.getContentComponent()) : DataContext.EMPTY_CONTEXT;
-                AnActionEvent anActionEvent = AnActionEvent.createFromDataContext(ActionPlaces.ACTION_SEARCH, null, context);
-                ActionUtil.performActionDumbAware(action, anActionEvent);
-            }
+        ApplicationManager.getApplication().invokeLater(() -> {
+            DataManager instance = DataManager.getInstance();
+            DataContext context = instance != null ? instance.getDataContext(editor.getContentComponent()) : DataContext.EMPTY_CONTEXT;
+            AnActionEvent anActionEvent = AnActionEvent.createFromDataContext(ActionPlaces.ACTION_SEARCH, null, context);
+            ActionUtil.performActionDumbAware(action, anActionEvent);
         }, ModalityState.NON_MODAL);
     }
 }
